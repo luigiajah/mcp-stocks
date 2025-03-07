@@ -1,6 +1,6 @@
-# YFinance Trader MCP Server
+# YFinance Trader MCP Tool
 
-An MCP (Model Context Protocol) server that provides stock market data and trading capabilities using the yfinance library.
+An MCP (Model Context Protocol) tool that provides stock market data and trading capabilities using the yfinance library.
 
 ## Features
 
@@ -23,11 +23,10 @@ pip install .
 
 ## Integration with Cursor
 
-1. In Cursor, go to Settings > Features > MCP
+1. In Cursor, go to Settings > MCP
 2. Click "+ Add New MCP Server"
 3. Fill in the form:
    - Name: "yfinance-trader" (or any name you prefer)
-   - Type: "stdio"
    - Command: `python3 /path/to/your/yfinance-trader/main.py`
 
 Example command:
@@ -158,7 +157,7 @@ All tools include proper error handling and will return an error message if some
 ## Troubleshooting
 
 If the MCP server is not working in Cursor:
-1. Verify the path in your settings.json is correct and absolute
+1. Verify the path in your settings is correct and absolute
 2. Make sure Python 3.10+ is in your system PATH
 3. Check that all dependencies are installed
 4. Try restarting Cursor
