@@ -22,4 +22,13 @@ dev-dependencies = [
     "black>=23.7.0",
     "isort>=5.12.0",
     "mypy>=1.5.1",
+]
+
+[tool.hatch.build]
+include = [
+    "main.py",
+    "README.md"
+]
+exclude = [
+    "requirements.txt"
 ] 
