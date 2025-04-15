@@ -15,6 +15,7 @@ An MCP (Model Context Protocol) tool that provides stock market data and trading
 1. Ensure you have Python 3.10 or higher installed
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 # or using pyproject.toml
@@ -30,9 +31,11 @@ pip install .
    - Command: `python3 /path/to/your/yfinance-trader/main.py`
 
 Example command:
+
 ```
 python3 /Users/username/projects/yfinance-trader/main.py
 ```
+
 (Replace with your actual path to main.py)
 
 4. Click "Add" and restart Cursor if needed
@@ -40,7 +43,9 @@ python3 /Users/username/projects/yfinance-trader/main.py
 ## Available Tools
 
 ### 1. get_stock_quote
+
 Get real-time stock quote information:
+
 ```python
 {
     "symbol": "AAPL",
@@ -53,7 +58,9 @@ Get real-time stock quote information:
 ```
 
 ### 2. get_company_overview
+
 Get company information and key metrics:
+
 ```python
 {
     "name": "Apple Inc.",
@@ -69,7 +76,9 @@ Get company information and key metrics:
 ```
 
 ### 3. get_time_series_daily
+
 Get historical daily price data:
+
 ```python
 {
     "symbol": "AAPL",
@@ -88,7 +97,9 @@ Get historical daily price data:
 ```
 
 ### 4. search_symbol
+
 Search for stocks and other securities:
+
 ```python
 {
     "results": [
@@ -104,7 +115,9 @@ Search for stocks and other securities:
 ```
 
 ### 5. get_recommendations
+
 Get analyst recommendations for a stock:
+
 ```python
 {
     "symbol": "AAPL",
@@ -123,7 +136,9 @@ Get analyst recommendations for a stock:
 ```
 
 ### 6. get_insider_transactions
+
 Get insider trading information:
+
 ```python
 {
     "symbol": "AAPL",
@@ -145,9 +160,46 @@ Get insider trading information:
 }
 ```
 
+### 7. get_technical_indicators
+
+Get advanced technical indicators for a stock (SMA, EMA, RSI, MACD, Stochastic, ATR, ADX, OBV, CCI, Supertrend, and more):
+
+```python
+{
+    "symbol": "AAPL",
+    "period": "3mo",
+    "indicators": ["sma", "ema", "rsi", "macd", "stoch", "atr", "adx", "obv", "cci", "supertrend"]
+}
+```
+
+Example response:
+
+```python
+{
+    "sma_20": [...],
+    "ema_20": [...],
+    "rsi_14": [...],
+    "macd": [...],
+    "macd_signal": [...],
+    "macd_hist": [...],
+    "stoch_k": [...],
+    "stoch_d": [...],
+    "atr_14": [...],
+    "adx_14": [...],
+    "obv": [...],
+    "cci_20": [...],
+    "supertrend": [...],
+    // ... more indicators
+}
+```
+
+- If the `indicators` field is omitted, a comprehensive default set is returned.
+- The endpoint works for Indian stocks (e.g., "TATAMOTORS") and will auto-resolve NSE/BSE symbols.
+
 ## Error Handling
 
 All tools include proper error handling and will return an error message if something goes wrong:
+
 ```python
 {
     "error": "Failed to fetch quote for INVALID_SYMBOL"
@@ -157,6 +209,7 @@ All tools include proper error handling and will return an error message if some
 ## Troubleshooting
 
 If the MCP server is not working in Cursor:
+
 1. Verify the path in your settings is correct and absolute
 2. Make sure Python 3.10+ is in your system PATH
 3. Check that all dependencies are installed
@@ -165,4 +218,4 @@ If the MCP server is not working in Cursor:
 
 ## License
 
-MIT License 
+MIT License
